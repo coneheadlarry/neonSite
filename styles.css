@@ -1,0 +1,161 @@
+:root {
+  --clr-neon: hsl(317 100% 54%);
+  --clr-bg: hsl(323 21% 16%);
+}
+
+*{
+  padding: 0;
+  margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: grid;
+  place-items: center;
+  background: var(--clr-bg);
+  font-family: "Balsamiq Sans", cursive;
+  color: var(--clr-neon);
+  overflow: hidden;
+}
+
+.neon-button {
+  font-size: 4rem;
+  
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--clr-neon);
+  border: var(--clr-neon) 0.125em solid;
+  padding: 0.25em 1em;
+  border-radius: 0.25em;
+  margin-top: 20vh;
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+
+  box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
+
+  position: relative;
+  
+}
+
+.neon-button::before {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  background: blue;
+  top: 1rem;
+  left: 0;
+  width: 30vw;
+  height: 300%;
+  overflow: hidden;
+  transform: perspective(1em) rotateX(80deg) scale(1, 0.35);
+  filter: blur(1em);
+  opacity: 0.7;
+}
+
+.neon-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 2em 0.5em var(--clr-neon);
+  opacity: 0;
+  background-color: var(--clr-neon);
+  z-index: -1;
+  transition: opacity 100ms linear;
+}
+
+.neon-button:hover,
+.neon-button:focus {
+  color: var(--clr-bg);
+  text-shadow: none;
+}
+
+.neon-button:hover::before,
+.neon-button:focus::before {
+  opacity: 1;
+}
+.neon-button:hover::after,
+.neon-button:focus::after {
+  opacity: 1;
+}
+
+.section-1 {
+  text-align: center;
+  justify-content: center;  
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.shore {
+  background-color: #ffd56b;
+  height: 20vh;
+  width: 100vw;
+  position: absolute;
+  bottom: -10vh;
+  left: 0%;
+  border-radius: 25rem 25rem 0 0;
+  box-shadow: inset 0 0 2em 0 var(--clr-neon), 0 0 4em 0 red;
+}
+
+#umb{
+  position: absolute;
+  height: 30vh;
+  width: 30vw;
+  bottom: 2vh;
+  transform: rotate(25deg);
+  right: 5vw;
+  overflow: hidden;
+  filter: drop-shadow(0px 0px 1rem purple);
+ 
+
+}
+
+#ball{
+  height: 12vh;
+  width: 12vw;
+  position: absolute;
+  bottom: 7vh;
+  right: 35vw;
+  filter: drop-shadow(0px 0px 1rem green);
+
+}
+
+#sun {
+  position: absolute;
+  width: 30vw;
+  height: 30vh;
+  animation: rotation 8s infinite linear;
+  top: 0;
+  left: 0;
+  filter: drop-shadow(0px 0px 2rem var(--clr-neon));
+
+}
+
+
+.section-2{
+  height: 100vh;
+  width: 100vw;
+}
+
+.projects{
+  background-color: black;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
